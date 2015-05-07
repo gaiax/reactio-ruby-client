@@ -23,19 +23,33 @@ module Reactio
     end
 
     def list_incidents(options = {})
-      query = {}
-      query[:from] = options[:from].to_i if options[:from]
-      query[:to] = options[:to].to_i if options[:to]
-      query[:status] = options[:status].to_s if options[:status]
-      query[:page] = options[:page] if options[:page]
-      query[:per_page] = options[:per_page] if options[:per_page]
+      body = {}
+      body[:from] = options[:from].to_i if options[:from]
+      body[:to] = options[:to].to_i if options[:to]
+      body[:status] = options[:status].to_s if options[:status]
+      body[:page] = options[:page] if options[:page]
+      body[:per_page] = options[:per_page] if options[:per_page]
 
       res = @http.get("/api/v1/incidents") do |req|
         req.headers['Accept'] = 'application/json'
         req.headers['Content-Type'] = 'application/json'
         req.headers['X-Api-Key'] = api_key
         req.headers['User-Agent'] = USER_AGENT
-        req.body = query.to_json
+        req.body = body.to_json
+      end
+    end
+
+    def notify_incident(incident_id, options = {})
+      body = { incident_id: incident_id }
+      body[:text] = options[:text] if options[:text]
+      body[:call] = options[:call] unless options[:call].nil?
+
+      res = @http.post("/api/v1/notifications") do |req|
+        req.headers['Accept'] = 'application/json'
+        req.headers['Content-Type'] = 'application/json'
+        req.headers['X-Api-Key'] = api_key
+        req.headers['User-Agent'] = USER_AGENT
+        req.body = body.to_json
       end
     end
 
