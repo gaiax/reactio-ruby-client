@@ -45,6 +45,7 @@ module Reactio
         req.headers['X-Api-Key'] = api_key
         req.headers['User-Agent'] = USER_AGENT
       end
+      JSON.parse(res.body)
     end
 
     def list_incidents(options = {})

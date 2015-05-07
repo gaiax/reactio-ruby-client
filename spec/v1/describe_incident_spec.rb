@@ -12,12 +12,16 @@ describe 'describe incident' do
       organization, api_key,
       method: :get, path: "/api/v1/incidents/123"
     ).to_return(
-      status: 200
+      status: 200,
+      body: incident.to_json
     )
   end
 
+  let(:incident) { fixture('incident') }
+
   it do
-    subject
+    obj = subject
     expect(stub).to have_been_requested
+    expect(obj).to eq(incident)
   end
 end
