@@ -2,17 +2,15 @@ describe 'describe incident' do
   include_context 'default_client_context'
 
   subject do
-    client.describe_incident(incident_id)
+    client.describe_incident(123)
   end
-
-  let(:incident_id) { 123 }
 
   before { stub }
 
   let(:stub) do
     stub_api_request(
       organization, api_key,
-      method: :get, path: "/api/v1/incidents/#{incident_id}"
+      method: :get, path: "/api/v1/incidents/123"
     ).to_return(
       status: 200
     )
