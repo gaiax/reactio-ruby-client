@@ -19,9 +19,5 @@ describe 'describe incident' do
 
   let(:incident) { fixture('incident') }
 
-  it do
-    obj = subject
-    expect(stub).to have_been_requested
-    expect(obj).to eq(incident)
-  end
+  it { is_expected.to eq(incident) }
 end
