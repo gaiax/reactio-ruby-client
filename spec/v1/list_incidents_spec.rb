@@ -8,7 +8,7 @@ describe 'list incidents' do
   before { stub }
 
   context 'without query option' do
-    let(:query) { {} }
+    subject { client.list_incidents }
 
     let(:stub) do
       stub_api_request(
