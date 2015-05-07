@@ -1,0 +1,39 @@
+---
+- id: 1
+  name: "サイト閲覧不可"
+  manager: 
+  status: open
+  detection: msp
+  cause: over-capacity
+  cause_supplement: Webサーバがアクセス過多でダウン
+  point: middleware
+  scale: whole
+  pend_text: Webサーバの再起動を行う
+  close_text: Webサーバのスケールアウトを行う
+  closed_by: 
+  closed_at: 
+  pended_by: 
+  pended_at: 
+  created_by: 0
+  created_at: 1430208000
+  updated_by: 0
+  updated_at: 1430208000
+- id: 2
+  name: "サイト閲覧不可2"
+  manager: 
+  status: open
+  detection: msp
+  cause: over-capacity
+  cause_supplement: Webサーバがアクセス過多でダウン
+  point: middleware
+  scale: whole
+  pend_text: Webサーバの再起動を行う
+  close_text: Webサーバのスケールアウトを行う
+  closed_by: 
+  closed_at: 
+  pended_by: 
+  pended_at: 
+  created_by: 0
+  created_at: 1430209000
+  updated_by: 0
+  updated_at: 1430209000

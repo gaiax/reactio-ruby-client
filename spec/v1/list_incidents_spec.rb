@@ -2,126 +2,75 @@ describe 'list incidents' do
   include_context 'default_client_context'
 
   subject do
-    client.list_incidents(query)
+    client.list_incidents(options)
   end
 
   before { stub }
 
-  context 'without query option' do
+  let(:incident_list) { fixture('incident_list') }
+
+  let(:stub) do
+    stub_api_request(
+      organization, api_key,
+      method: :get, path: '/api/v1/incidents',
+      body: expected_options
+    ).to_return(
+      status: 200,
+      body: incident_list.to_json
+    )
+  end
+
+  context 'without options option' do
     subject { client.list_incidents }
-
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents'
-      ).to_return(
-        status: 200
-      )
-    end
-
-    it do
-      subject
-      expect(stub).to have_been_requested
-    end
+    let(:expected_options) { {} }
+    it { is_expected.to eq(incident_list) }
   end
 
   context 'with from option' do
-    let(:query) { { from: time } }
+    let(:options) { { from: time } }
+    let(:expected_options) { { from: time.to_i } }
     let(:time) { Time.parse('2015-01-23 12:34:56') }
-
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents',
-        body: { from: time.to_i }
-      ).to_return(
-        status: 200
-      )
-    end
-
-    it do
-      subject
-      expect(stub).to have_been_requested
-    end
+    it { is_expected.to eq(incident_list) }
   end
 
   context 'with to option' do
-    let(:query) { { to: time } }
+    let(:options) { { to: time } }
+    let(:expected_options) { { to: time.to_i } }
     let(:time) { Time.parse('2015-01-23 12:34:56') }
-
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents',
-        body: { to: time.to_i }
-      ).to_return(
-        status: 200
-      )
-    end
-
-    it do
-      subject
-      expect(stub).to have_been_requested
-    end
+    it { is_expected.to eq(incident_list) }
   end
 
   context 'with status option' do
-    let(:query) { { status: status } }
-    let(:status) { :open }
+    let(:options) { { status: status } }
 
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents',
-        body: { status: status.to_s }
-      ).to_return(
-        status: 200
-      )
+    context 'given :open as status' do
+      let(:status) { :open }
+      let(:expected_options) { { status: 'open' } }
+      it { is_expected.to eq(incident_list) }
     end
 
-    it do
-      subject
-      expect(stub).to have_been_requested
+    context 'given :pend as status' do
+      let(:status) { :pend }
+      let(:expected_options) { { status: 'pend' } }
+      it { is_expected.to eq(incident_list) }
+    end
+
+    context 'given :close as status' do
+      let(:status) { :close }
+      let(:expected_options) { { status: 'close' } }
+      it { is_expected.to eq(incident_list) }
     end
   end
 
   context 'with page option' do
-    let(:query) { { page: page } }
-    let(:page) { 1 }
-
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents',
-        body: { page: page }
-      ).to_return(
-        status: 200
-      )
-    end
-
-    it do
-      subject
-      expect(stub).to have_been_requested
-    end
+    let(:options) { { page: 1 } }
+    let(:expected_options) { { page: 1 } }
+    it { is_expected.to eq(incident_list) }
   end
 
   context 'with per_page option' do
-    let(:query) { { per_page: per_page } }
-    let(:per_page) { 100 }
-
-    let(:stub) do
-      stub_api_request(
-        organization, api_key,
-        method: :get, path: '/api/v1/incidents',
-        body: { per_page: per_page }
-      ).to_return(
-        status: 200
-      )
-    end
-
-    it do
-      subject
-      expect(stub).to have_been_requested
-    end
+    let(:options) { { per_page: 100 } }
+    let(:expected_options) { { per_page: 100 } }
+    it { is_expected.to eq(incident_list) }
   end
 end

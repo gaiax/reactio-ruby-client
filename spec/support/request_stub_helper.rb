@@ -5,7 +5,7 @@ module RequestStubHelper
   def stub_api_request(organization, api_key, spec)
     params = {}
     params[:headers] = build_headers(api_key)
-    params[:body] = spec[:body].to_json if spec[:body]
+    params[:body] = spec[:body].to_json unless Hash(spec[:body]).empty?
 
     stub_request(
       spec[:method],
