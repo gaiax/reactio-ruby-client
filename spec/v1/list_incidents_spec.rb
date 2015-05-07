@@ -1,11 +1,9 @@
 describe 'list incidents' do
+  include_context 'default_client_context'
+
   subject do
     client.list_incidents(query)
   end
-
-  let(:client) { Reactio::Client.new(api_key: api_key, organization: organization) }
-  let(:api_key) { 'api_key_for_organization' }
-  let(:organization) { 'your-organization' }
 
   before { stub }
 
