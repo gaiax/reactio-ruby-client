@@ -1,5 +1,6 @@
-require "reactio/version"
+require 'reactio/version'
+require 'reactio/client'
 
 module Reactio
-  # Your code goes here...
+  DOMAIN = 'reactio.jp'.freeze
 end
