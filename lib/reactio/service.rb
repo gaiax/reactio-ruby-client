@@ -28,7 +28,7 @@ module Reactio
     end
 
     def list_incidents(options = {})
-      payload = [].tap do |me|
+      payload = {}.tap do |me|
         me[:from] = options.delete(:from).to_i if options[:from]
         me[:to] = options.delete(:to).to_i if options[:to]
         me[:status] = options.delete(:status).to_s if options[:status]
