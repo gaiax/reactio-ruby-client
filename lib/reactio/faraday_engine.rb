@@ -35,7 +35,7 @@ module Reactio
       end
 
       def decode_body(env)
-        env[:body] = JSON.parse(env[:body])
+        env[:body] = JSON.parse(env[:body], symbolize_names: true)
       end
   end
 end

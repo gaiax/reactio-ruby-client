@@ -1,48 +1,48 @@
 ---
-id: 123
-name: "サイト閲覧不可"
-manager: 
-status: open
-detection: msp
-cause: over-capacity
-cause_supplement: Webサーバがアクセス過多でダウン
-point: middleware
-scale: whole
-pend_text: Webサーバの再起動を行う
-close_text: Webサーバのスケールアウトを行う
-closed_by: 
-closed_at: 
-pended_by: 
-pended_at: 
-created_by: 0
-created_at: 1430208000
-updated_by: 0
-updated_at: 1430208000
-topics:
-- id: 1
-  name: "原因調査"
-  status: open
-  color: "#5661aa"
-  closed_by: 
-  closed_at: 
-  created_by: 0
-  created_at: 1430208000
-  updated_by: 0
-  updated_at: 1430208000
-- id: 2
-  name: "復旧作業"
-  status: open
-  color: "#077f40"
-  closed_by: 
-  closed_at: 
-  created_by: 0
-  created_at: 1430208000
-  updated_by: 0
-  updated_at: 1430208000
-files:
-- name: "障害報告書"
-  path: https://gaiax-dev.reactio.jp/data/reactio-mvp/files/incident/1/_bYMRLTxj75lcXCWN0iaAZud2CuGqFFL/Screen
+:id: 123
+:name: "サイト閲覧不可"
+:manager: 
+:status: open
+:detection: msp
+:cause: over-capacity
+:cause_supplement: Webサーバがアクセス過多でダウン
+:point: middleware
+:scale: whole
+:pend_text: Webサーバの再起動を行う
+:close_text: Webサーバのスケールアウトを行う
+:closed_by: 
+:closed_at: 
+:pended_by: 
+:pended_at: 
+:created_by: 0
+:created_at: 1430208000
+:updated_by: 0
+:updated_at: 1430208000
+:topics:
+- :id: 1
+  :name: "原因調査"
+  :status: open
+  :color: "#5661aa"
+  :closed_by: 
+  :closed_at: 
+  :created_by: 0
+  :created_at: 1430208000
+  :updated_by: 0
+  :updated_at: 1430208000
+- :id: 2
+  :name: "復旧作業"
+  :status: open
+  :color: "#077f40"
+  :closed_by: 
+  :closed_at: 
+  :created_by: 0
+  :created_at: 1430208000
+  :updated_by: 0
+  :updated_at: 1430208000
+:files:
+- :name: "障害報告書"
+  :path: https://gaiax-dev.reactio.jp/data/reactio-mvp/files/incident/1/_bYMRLTxj75lcXCWN0iaAZud2CuGqFFL/Screen
     Shot.png
-users:
-- id: 1
-- id: 2
+:users:
+- :id: 1
+- :id: 2
