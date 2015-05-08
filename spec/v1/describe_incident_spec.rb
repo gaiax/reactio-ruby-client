@@ -1,8 +1,8 @@
 describe 'describe incident' do
-  include_context 'default_client_context'
+  include_context 'default_service_context'
 
   subject do
-    client.describe_incident(123)
+    service.describe_incident(123)
   end
 
   before { stub }

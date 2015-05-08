@@ -2,7 +2,7 @@ require 'uri'
 require 'reactio/api_client'
 
 module Reactio
-  class Client
+  class Service
     include Utils
 
     def initialize(options)

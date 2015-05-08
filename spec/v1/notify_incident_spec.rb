@@ -1,8 +1,8 @@
 describe 'execute notification' do
-  include_context 'default_client_context'
+  include_context 'default_service_context'
 
   subject do
-    client.notify_incident(incident_id, options)
+    service.notify_incident(incident_id, options)
   end
 
   let(:incident_id) { 123 }
@@ -23,7 +23,7 @@ describe 'execute notification' do
   let(:notification) { fixture('notification') }
 
   context 'without options' do
-    subject { client.notify_incident(incident_id) }
+    subject { service.notify_incident(incident_id) }
     let(:expected_options) { {} }
     it { is_expected.to eq(notification) }
   end

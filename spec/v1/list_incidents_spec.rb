@@ -1,8 +1,8 @@
 describe 'list incidents' do
-  include_context 'default_client_context'
+  include_context 'default_service_context'
 
   subject do
-    client.list_incidents(options)
+    service.list_incidents(options)
   end
 
   before { stub }
@@ -21,7 +21,7 @@ describe 'list incidents' do
   end
 
   context 'without options option' do
-    subject { client.list_incidents }
+    subject { service.list_incidents }
     let(:expected_options) { {} }
     it { is_expected.to eq(incident_list) }
   end

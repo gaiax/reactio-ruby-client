@@ -1,8 +1,8 @@
 describe 'create incident' do
-  include_context 'default_client_context'
+  include_context 'default_service_context'
 
   subject do
-    client.create_incident(name, options)
+    service.create_incident(name, options)
   end
 
   let(:name) { 'サイト閲覧不可' }
@@ -23,7 +23,7 @@ describe 'create incident' do
   let(:incident) { fixture('created_incident') }
 
   context 'without options' do
-    subject { client.create_incident(name) }
+    subject { service.create_incident(name) }
     let(:expected_options) { {} }
     it { is_expected.to eq(incident) }
   end
