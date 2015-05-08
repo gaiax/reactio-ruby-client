@@ -78,6 +78,7 @@ module Reactio
         req.headers['User-Agent'] = USER_AGENT
         req.body = body.to_json
       end
+      JSON.parse(res.body)
     end
 
     private
