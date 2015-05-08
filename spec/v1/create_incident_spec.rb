@@ -13,7 +13,7 @@ describe 'create incident' do
     stub_api_request(
       organization, api_key,
       method: :post, path: '/api/v1/incidents',
-      body: { name: name }.merge(expected_options)
+      body: { name: name }.merge(expected_options).to_json
     ).to_return(
       status: 201,
       body: incident.to_json

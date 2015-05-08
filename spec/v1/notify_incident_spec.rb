@@ -13,7 +13,7 @@ describe 'execute notification' do
     stub_api_request(
       organization, api_key,
       method: :post, path: '/api/v1/notifications',
-      body: { incident_id: incident_id }.merge(expected_options)
+      body: { incident_id: incident_id }.merge(expected_options).to_json
     ).to_return(
       status: 201,
       body: notification.to_json

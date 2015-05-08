@@ -13,7 +13,7 @@ describe 'list incidents' do
     stub_api_request(
       organization, api_key,
       method: :get, path: '/api/v1/incidents',
-      body: expected_options
+      body: expected_options.to_json
     ).to_return(
       status: 200,
       body: incident_list.to_json

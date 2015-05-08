@@ -1,11 +1,12 @@
 require 'json'
 
 module RequestStubHelper
+  MIME_TYPE = 'application/json'.freeze
 
   def stub_api_request(organization, api_key, spec)
     params = {}
     params[:headers] = build_headers(api_key)
-    params[:body] = spec[:body].to_json unless Hash(spec[:body]).empty?
+    params[:body] = spec[:body] if spec.key?(:body)
 
     stub_request(
       spec[:method],
@@ -15,8 +16,8 @@ module RequestStubHelper
 
   def build_headers(api_key)
     {
-      'Accept' => 'application/json',
-      'Content-Type' => 'application/json',
+      'Accept' => MIME_TYPE,
+      'Content-Type' => MIME_TYPE,
       'X-Api-Key' => api_key
     }
   end
