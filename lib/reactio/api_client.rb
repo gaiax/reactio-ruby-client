@@ -2,6 +2,8 @@ require 'faraday'
 require 'reactio/faraday_engine'
 
 module Reactio
+  class APIError < StandardError; end
+
   class APIClient
     attr_reader :api_key, :organization
 
