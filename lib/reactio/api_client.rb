@@ -19,13 +19,13 @@ module Reactio
 
     private
 
-      def set_api_key(an_api_key)
-        raise ArgumentError unless an_api_key
+      def set_api_key(an_api_key = nil)
+        raise ArgumentError, 'api_key is required' unless an_api_key
         @api_key = an_api_key.to_s
       end
 
       def set_organization(an_organization)
-        raise ArgumentError unless an_organization
+        raise ArgumentError, 'organization is required' unless an_organization
         @organization = an_organization.to_s
       end
 

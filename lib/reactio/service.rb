@@ -5,6 +5,8 @@ module Reactio
   class Service
     include Utils
 
+    attr_reader :api
+
     def initialize(options)
       @api = APIClient.new(
         options[:api_key],
