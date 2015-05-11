@@ -1,8 +1,15 @@
 require 'faraday'
+require 'reactio/api_endpoint'
 require 'reactio/faraday_engine'
 
 module Reactio
   class APIClient
+
+    def self.build(api_key, organization)
+      raise ArgumentError, 'api_key is required' unless api_key
+      raise ArgumentError, 'organization is required' unless organization
+      new(api_key, APIEndpoint.new(organization))
+    end
 
     def initialize(api_key, api_endpoint)
       @http = build_http_client(api_key, api_endpoint)

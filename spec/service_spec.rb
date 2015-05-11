@@ -12,8 +12,7 @@ module Reactio
               organization: organization
             )
         end
-        it { expect(subject.api_key).to eq(api_key) }
-        it { expect(subject.organization).to eq(organization) }
+        it { expect { subject }.to_not raise_error }
       end
 
       context 'given only api_key option' do
