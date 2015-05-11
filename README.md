@@ -87,7 +87,7 @@ reactio.notify_incident(
 require 'reactio'
 include Reactio
 
-list = reactio.create_incident(
+list = reactio.list_incidents(
   from: Time.now - (60 * 60 * 24 * 7),
   to: Time.now,
   status: 'pend',
