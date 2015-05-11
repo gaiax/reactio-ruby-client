@@ -7,6 +7,7 @@ module RequestStubHelper
     params = {}
     params[:headers] = build_headers(api_key)
     params[:body] = spec[:body] if spec.key?(:body)
+    params[:query] = spec[:query] if spec.key?(:query)
 
     stub_request(
       spec[:method],

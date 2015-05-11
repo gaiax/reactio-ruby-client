@@ -31,7 +31,7 @@ module Reactio
     end
 
     def request(method, path, env = {})
-      response = @http.send(method, path) {|r| r.body = env[:body] if env.key?(:body) }
+      response = @http.send(method, path, env[:body])
       handle_api_response(response)
     end
 
