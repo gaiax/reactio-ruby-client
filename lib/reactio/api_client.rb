@@ -31,9 +31,23 @@ module Reactio
     end
 
     def request(method, path, env = {})
-      @http
-        .send(method, path) {|r| r.body = env[:body] if env.key?(:body) }
-        .body
+      response = @http.send(method, path) {|r| r.body = env[:body] if env.key?(:body) }
+      handle_api_response(response)
     end
+
+    private
+
+      def handle_api_response(res)
+        case res.status
+        when 200..299
+          res.body
+        when 401
+          raise Reactio::AuthenticationError, res.body.inspect
+        when 400..499
+          raise Reactio::BadRequest, res.body.inspect
+        when 500..599
+          raise Reactio::ServerError, res.body.inspect
+        end
+      end
   end
 end

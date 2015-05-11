@@ -16,7 +16,6 @@ module Reactio
       encode_body(request_env)
       @app.call(request_env).on_complete do |response_env|
         decode_body(response_env)
-        handle_api_error(response_env)
       end
     end
 
@@ -37,17 +36,6 @@ module Reactio
 
       def decode_body(env)
         env[:body] = JSON.parse(env[:body], symbolize_names: true)
-      end
-
-      def handle_api_error(env)
-        case env[:status]
-        when 401
-          raise Reactio::AuthenticationError, env[:body].inspect
-        when 400..499
-          raise Reactio::BadRequest, env[:body].inspect
-        when 500..599
-          raise Reactio::ServerError, env[:body].inspect
-        end
       end
   end
 end
