@@ -1,4 +1,5 @@
 require 'reactio/version'
+require 'reactio/errors'
 require 'reactio/utils'
 require 'reactio/service'
 

@@ -41,8 +41,12 @@ module Reactio
 
       def handle_api_error(env)
         case env[:status]
+        when 401
+          raise Reactio::AuthenticationError, env[:body].inspect
         when 400..499
-          raise Reactio::APIError, env[:body].inspect
+          raise Reactio::BadRequest, env[:body].inspect
+        when 500..599
+          raise Reactio::ServerError, env[:body].inspect
         end
       end
   end
