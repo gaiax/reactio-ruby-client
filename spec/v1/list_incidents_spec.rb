@@ -43,20 +43,20 @@ describe 'list incidents' do
   context 'with status option' do
     let(:options) { { status: status } }
 
-    context 'given :open as status' do
-      let(:status) { :open }
+    context 'given open as status' do
+      let(:status) { 'open' }
       let(:expected_options) { { status: 'open' } }
       it { is_expected.to eq(incident_list) }
     end
 
-    context 'given :pend as status' do
-      let(:status) { :pend }
+    context 'given pend as status' do
+      let(:status) { 'pend' }
       let(:expected_options) { { status: 'pend' } }
       it { is_expected.to eq(incident_list) }
     end
 
-    context 'given :close as status' do
-      let(:status) { :close }
+    context 'given close as status' do
+      let(:status) { 'close' }
       let(:expected_options) { { status: 'close' } }
       it { is_expected.to eq(incident_list) }
     end

@@ -30,20 +30,20 @@ describe 'create incident' do
 
   context 'with status option' do
     let(:options) { { status: status } }
-    let(:expected_options) { { status: status.to_s } }
+    let(:expected_options) { { status: status } }
 
     context 'given :open as status' do
-      let(:status) { :open }
+      let(:status) { 'open' }
       it { is_expected.to eq(incident) }
     end
 
     context 'given :pend as status' do
-      let(:status) { :pend }
+      let(:status) { 'pend' }
       it { is_expected.to eq(incident) }
     end
 
     context 'given :close as status' do
-      let(:status) { :close }
+      let(:status) { 'close' }
       it { is_expected.to eq(incident) }
     end
   end
@@ -52,25 +52,25 @@ describe 'create incident' do
     let(:options) { { detection: detection } }
 
     context 'given :msp as detection' do
-      let(:detection) { :msp }
+      let(:detection) { 'msp' }
       let(:expected_options) { { detection: 'msp' } }
       it { is_expected.to eq(incident) }
     end
 
     context 'given :system as detection' do
-      let(:detection) { :system }
+      let(:detection) { 'system' }
       let(:expected_options) { { detection: 'system' } }
       it { is_expected.to eq(incident) }
     end
 
     context 'given :client as detection' do
-      let(:detection) { :client }
+      let(:detection) { 'client' }
       let(:expected_options) { { detection: 'client' } }
       it { is_expected.to eq(incident) }
     end
 
     context 'given :internal as detection' do
-      let(:detection) { :internal }
+      let(:detection) { 'internal' }
       let(:expected_options) { { detection: 'internal' } }
       it { is_expected.to eq(incident) }
     end
@@ -85,38 +85,38 @@ describe 'create incident' do
   context 'with cause option' do
     let(:options) { { cause: cause } }
 
-    context 'given :over_capacity as cause' do
-      let(:cause) { :over_capacity }
+    context 'given over-capacity as cause' do
+      let(:cause) { 'over-capacity' }
       let(:expected_options) { { cause: 'over-capacity' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :bug as cause' do
-      let(:cause) { :bug }
+    context 'given bug as cause' do
+      let(:cause) { 'bug' }
       let(:expected_options) { { cause: 'bug' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :operation_error as cause' do
-      let(:cause) { :operation_error }
+    context 'given operation-error as cause' do
+      let(:cause) { 'operation-error' }
       let(:expected_options) { { cause: 'operation-error' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :external_factor as cause' do
-      let(:cause) { :external_factor }
+    context 'given external-factor as cause' do
+      let(:cause) { 'external-factor' }
       let(:expected_options) { { cause: 'external-factor' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :degradation as cause' do
-      let(:cause) { :degradation }
+    context 'given degradation as cause' do
+      let(:cause) { 'degradation' }
       let(:expected_options) { { cause: 'degradation' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :unknown as cause' do
-      let(:cause) { :unknown }
+    context 'given unknown as cause' do
+      let(:cause) { 'unknown' }
       let(:expected_options) { { cause: 'unknown' } }
       it { is_expected.to eq(incident) }
     end
@@ -138,38 +138,38 @@ describe 'create incident' do
   context 'with point option' do
     let(:options) { { point: point } }
 
-    context 'given :network as point' do
-      let(:point) { :network }
+    context 'given network as point' do
+      let(:point) { 'network' }
       let(:expected_options) { { point: 'network' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :shared_hardware as point' do
-      let(:point) { :shared_hardware }
+    context 'given shared-hardware as point' do
+      let(:point) { 'shared-hardware' }
       let(:expected_options) { { point: 'shared-hardware' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :hardware as point' do
-      let(:point) { :hardware }
+    context 'given hardware as point' do
+      let(:point) { 'hardware' }
       let(:expected_options) { { point: 'hardware' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :os as point' do
-      let(:point) { :os }
+    context 'given os as point' do
+      let(:point) { 'os' }
       let(:expected_options) { { point: 'os' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :middleware as point' do
-      let(:point) { :middleware }
+    context 'given middleware as point' do
+      let(:point) { 'middleware' }
       let(:expected_options) { { point: 'middleware' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :application as point' do
-      let(:point) { :application }
+    context 'given application as point' do
+      let(:point) { 'application' }
       let(:expected_options) { { point: 'application' } }
       it { is_expected.to eq(incident) }
     end
@@ -184,20 +184,20 @@ describe 'create incident' do
   context 'with scale option' do
     let(:options) { { scale: scale } }
 
-    context 'given :cross as scale' do
-      let(:scale) { :cross }
+    context 'given cross as scale' do
+      let(:scale) { 'cross' }
       let(:expected_options) { { scale: 'cross' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :whole as scale' do
-      let(:scale) { :whole }
+    context 'given whole as scale' do
+      let(:scale) { 'whole' }
       let(:expected_options) { { scale: 'whole' } }
       it { is_expected.to eq(incident) }
     end
 
-    context 'given :point as scale' do
-      let(:scale) { :point }
+    context 'given point as scale' do
+      let(:scale) { 'point' }
       let(:expected_options) { { scale: 'point' } }
       it { is_expected.to eq(incident) }
     end
