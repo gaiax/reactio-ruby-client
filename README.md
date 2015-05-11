@@ -62,7 +62,7 @@ reactio.create_incident(
   point: 'application',
   scale: 'point',
   pend_text: 'Webサーバの再起動を行う',
-  topic: %w(原因調査 復旧作業),
+  topics: %w(原因調査 復旧作業),
   notification_text: '至急対応をお願いします',
   notification_call: false
 )
