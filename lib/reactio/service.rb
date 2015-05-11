@@ -1,4 +1,3 @@
-require 'uri'
 require 'reactio/api_client'
 
 module Reactio

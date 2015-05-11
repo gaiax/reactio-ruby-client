@@ -3,7 +3,6 @@ require 'reactio/utils'
 require 'reactio/service'
 
 module Reactio
-  DOMAIN = 'reactio.jp'.freeze
 
   def self.included(base)
     base.class_eval do
