@@ -1,16 +1,16 @@
+require 'reactio/api_endpoint'
 require 'reactio/api_client'
 
 module Reactio
   class Service
     include Utils
 
-    attr_reader :api
+    attr_reader :api_key, :organization
 
     def initialize(options)
-      @api = APIClient.new(
-        options[:api_key],
-        options[:organization]
-      )
+      set_api_key(options[:api_key])
+      set_organization(options[:organization])
+      @api = APIClient.new(api_key, APIEndpoint.new(organization))
     end
 
     def create_incident(name, options = {})
@@ -44,5 +44,17 @@ module Reactio
         body: { incident_id: incident_id }.merge(options)
       )
     end
+
+    private
+
+      def set_api_key(an_api_key = nil)
+        raise ArgumentError, 'api_key is required' unless an_api_key
+        @api_key = an_api_key.to_s
+      end
+
+      def set_organization(an_organization = nil)
+        raise ArgumentError, 'organization is required' unless an_organization
+        @organization = an_organization.to_s
+      end
   end
 end

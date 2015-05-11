@@ -1,7 +1,7 @@
 require 'uri'
 
 module Reactio
-  class APIServer
+  class APIEndpoint
     DOMAIN = 'reactio.jp'.freeze
 
     attr_reader :organization

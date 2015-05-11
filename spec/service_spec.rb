@@ -10,10 +10,10 @@ module Reactio
             .new(
               api_key: api_key,
               organization: organization
-            ).api
+            )
         end
         it { expect(subject.api_key).to eq(api_key) }
-        it { expect(subject.api_server).to eq(APIServer.new(organization)) }
+        it { expect(subject.organization).to eq(organization) }
       end
 
       context 'given only api_key option' do
