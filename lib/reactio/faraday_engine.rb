@@ -33,6 +33,7 @@ module Reactio
       end
 
       def encode_body(env)
+        return if env[:body].nil?
         env[:body] = JSON.dump(env[:body])
       end
 
