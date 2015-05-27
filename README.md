@@ -1,5 +1,7 @@
 # Reactio
 
+[![Build Status](https://travis-ci.org/haazime/reactio.svg?branch=master)](https://travis-ci.org/haazime/reactio)
+
 Reactio API Client for ruby
 
 ## Installation
