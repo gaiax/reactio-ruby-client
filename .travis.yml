@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.2
+  - 2.1.6
+  - 2.0.0
+  - 1.9.3
+env:
+  - SPEC_OPTS='--require spec_helper'
+script:
+  - bundle exec rake spec
