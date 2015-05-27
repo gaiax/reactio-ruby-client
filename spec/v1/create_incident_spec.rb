@@ -1,3 +1,5 @@
+# encoding:utf-8
+
 describe 'create incident' do
   include_context 'default_service_context'
 
