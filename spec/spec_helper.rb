@@ -1,5 +1,10 @@
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 require 'reactio'
 require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow: 'codeclimate.com')
 
 Dir[File.expand_path('../support', __FILE__) + '/**/*.rb' ].each {|f| require f }
 
