@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/haazime/reactio.svg?branch=master)](https://travis-ci.org/haazime/reactio)
 [![Code Climate](https://codeclimate.com/github/haazime/reactio/badges/gpa.svg)](https://codeclimate.com/github/haazime/reactio)
+[![Test Coverage](https://codeclimate.com/github/haazime/reactio/badges/coverage.svg)](https://codeclimate.com/github/haazime/reactio/coverage)
 
 Reactio API Client for ruby
 
