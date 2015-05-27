@@ -5,9 +5,5 @@ rvm:
   - 2.1.6
   - 2.0.0
   - 1.9.3
-env:
-  global:
-    - SPEC_OPTS='--require spec_helper'
-    - CODECLIMATE_REPO_TOKEN=b675cae4963c33326923864379d10621f360b26091e3868b85d81f69f70ad5d8
 script:
-  - bundle exec rake spec
+  - SPEC_OPTS='--require spec_helper' CODECLIMATE_REPO_TOKEN=b675cae4963c33326923864379d10621f360b26091e3868b85d81f69f70ad5d8 bundle exec rake spec
