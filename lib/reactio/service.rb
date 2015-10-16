@@ -42,5 +42,12 @@ module Reactio
         body: { incident_id: incident_id }.merge(options)
       )
     end
+
+    def create_message(incident_id, options = {})
+      @api.request(
+        :post, "/api/v1/messages",
+        body: { incident_id: incident_id }.merge(options)
+      )
+    end
   end
 end
