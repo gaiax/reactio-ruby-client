@@ -257,15 +257,7 @@ describe 'create incident' do
   context 'with notification_call option' do
     let(:options) { { message: message } }
     let(:expected_options) { { message: message } }
-
-    context 'given message' do
-      let(:message) { '<p>至急原因調査を実施！</p><a href="https://reactio.jp"><img src="https://reactio.jp/imgs/logo.png" /></a><br />' }
-      it { is_expected.to eq(incident) }
-    end
-
-    context 'given blank message' do
-      let(:message) { '' }
-      it { is_expected.to eq(incident) }
-    end
+    let(:message) { '<p>至急原因調査を実施！</p><a href="https://reactio.jp"><img src="https://reactio.jp/imgs/logo.png" /></a><br />' }
+    it { is_expected.to eq(incident) }
   end
 end
